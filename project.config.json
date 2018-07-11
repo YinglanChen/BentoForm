@@ -10,7 +10,7 @@
 		"minified": true,
 		"newFeature": true
 	},
-	"compileType": "search",
+	"compileType": "miniprogram",
 	"libVersion": "1.9.98",
 	"appid": "wxdf3e5bc6bf28c758",
 	"projectname": "%E5%A4%96%E5%8D%96",
