@@ -8,8 +8,8 @@ Page({
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    foo:'餐厅登录',
-    bar:'学生登录',
+    restaurant:'餐厅登录',
+    customer:'学生登录',
     id:0,
     array: [{
       message: 'foo',
