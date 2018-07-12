@@ -1,4 +1,12 @@
 /**index.wxss**/
+.container{
+  margin: 0;
+  padding: 0;
+}
+
+.login{
+  margin-top: 50rpx;
+}
 .login button{
   margin-top: 50rpx;
 }
