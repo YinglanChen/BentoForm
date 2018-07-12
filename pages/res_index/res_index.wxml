@@ -1,0 +1,11 @@
+<view class="container">
+  <view class="info">
+    <view class="profile">头像区</view>
+    <text class="name">店名</text>
+  </view>
+
+  <view class="main">
+    <button>管理菜单</button>
+    <button>查看订单</button>
+  </view>
+</view>
