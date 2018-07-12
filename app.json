@@ -1,6 +1,10 @@
 {
   "pages": [
+<<<<<<< HEAD
     "pages/menu/menu",
+=======
+    "pages/res_index/res_index",
+>>>>>>> a0d7dde78bdb268571c5ca76aff1565a0a4e1dc6
     "pages/index/index",
     "pages/logs/logs"
     

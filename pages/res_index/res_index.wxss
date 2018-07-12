@@ -1,0 +1,27 @@
+.container{
+  margin: 0;
+  padding: 0;
+}
+
+.info{
+  width: 100%;
+  padding: 25rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-bottom: 1px solid gray;
+}
+.profile{
+  margin-bottom: 40rpx;
+}
+.name{
+  font-size: 25px;
+}
+
+.main{
+  margin-top: 50rpx;
+}
+.main button{
+  margin-top: 100rpx;
+  width: 300rpx;
+}
