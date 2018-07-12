@@ -1,0 +1,24 @@
+/* pages/menu/menu.wxss */
+.title{
+  display: flex;
+  justify-content: center;
+}
+
+.menu{
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.delete, .price{
+  display: flex;
+  align-items: center;
+}
+
+
+
+#side {
+  font-size:12px 
+}

@@ -1,0 +1,31 @@
+<!--menu.wxml-->
+<!-- 管理菜单 -->
+<!-- 1. 显示已添加菜单 -->
+<view class="title" >
+    <text id="title">已添加菜单\n</text>
+</view>
+
+<view class="menu">
+    <view class="delete">
+        <icon type="clear"></icon>
+    </view>
+
+    <view>
+        <text id="entree">黑椒牛肉盖饭\n</text>
+        <text id="side">绿豆西米露 或 大骨汤 或 西瓜汁\n</text>
+    </view>
+
+    <view class="price">
+        <text id="price">$9</text>
+    </view>
+</view>
+<!-- 2. 添加 -->
+<view>
+    <input placeholder='主菜'></input>
+    <input placeholder='配菜'></input>
+    <input placeholder='金额'></input>
+</view>
+<view>
+    <button>添加</button>
+</view>
+
