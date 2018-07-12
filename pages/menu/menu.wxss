@@ -2,6 +2,8 @@
 .title{
   display: flex;
   justify-content: center;
+  font-size: 18px;
+  margin-bottom: 20px
 }
 
 .menu{
@@ -10,6 +12,7 @@
   margin: 10px;
   margin-left: 20px;
   margin-right: 20px;
+  border-bottom: 1px solid gray;
 }
 
 .delete, .price{
@@ -17,7 +20,13 @@
   align-items: center;
 }
 
+.add{
+  margin: 20px;
+}
 
+.confirm{
+  margin:20px
+}
 
 #side {
   font-size:12px 

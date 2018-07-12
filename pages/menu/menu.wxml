@@ -20,12 +20,12 @@
     </view>
 </view>
 <!-- 2. 添加 -->
-<view>
+<view class="add">
     <input placeholder='主菜'></input>
     <input placeholder='配菜'></input>
     <input placeholder='金额'></input>
 </view>
-<view>
-    <button>添加</button>
+<view class="confirm">
+    <button>确认添加</button>
 </view>
 
