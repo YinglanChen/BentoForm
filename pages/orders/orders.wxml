@@ -1,2 +1,49 @@
 <!--pages/orders/orders.wxml-->
-<text>pages/orders/orders.wxml</text>
+<view class="title">
+  <text>查看订单</text>
+</view>
+
+<view class="page">
+    <view class="page__hd">
+        <text class="page__title">radio</text>
+        <text class="page__desc">单选框</text>
+    </view>
+    <view class="page__bd">
+        <view class="section section_gap">
+            <radio-group class="radio-group" bindchange="radioChange">
+                <radio class="radio" wx:for-items="{{items}}" wx:key="name" value="{{item.name}}" checked="{{item.checked}}">
+                    <text>{{item.value}}</text>
+                </radio>
+            </radio-group>
+        </view>
+    </view>
+</view>
+
+<view class="filter">
+  <text>按订单查看\n</text>
+  <text>按地点查看\n</text>
+  <text>按菜品查看\n</text>
+</view>
+
+<view class="table">
+  <!-- 表格首行  -->
+  <view class="tr bg-w">
+    <view class="th">head1</view>
+    <view class="th">head2</view>
+    <view class="th ">head3</view>
+  <!-- 表格内容  -->
+  <block wx:for="{{listData}}" wx:key="{{code}}">
+    <view wx:if="{{index % 2 == 0}}" class="tr bg-g" >
+      <view class="td">{{item.code}}</view>
+      <view class="td">{{item.text}}</view>
+      <view class="td">{{item.type}}</view>
+    </view>
+    <view wx:else class="tr" >
+      <view class="td">{{item.code}}</view>
+      <view class="td">{{item.text}}</view>
+      <view class="td">{{item.type}}</view>
+    </view>
+  </block>
+  </view>
+
+</view>

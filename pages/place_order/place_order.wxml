@@ -40,7 +40,7 @@
       </view>
     </view>
   </view>
-
+  <!-- 再添加一个取餐地点和时间会更好？^ ^  -->
   <view class='button'>
     <button>确认</button>
   </view>
