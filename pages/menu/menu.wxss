@@ -28,6 +28,6 @@
   margin:20px
 }
 
-#side {
+.side {
   font-size:12px 
 }

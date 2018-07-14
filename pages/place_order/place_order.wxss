@@ -1,0 +1,74 @@
+.header{
+  width: 70%;
+  padding: 10rpx;
+  border: 1px solid black;
+  text-align: center;
+  font-size: 20px;
+}
+
+.main{
+  width: 90%;
+  margin: 40rpx 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.item{
+  width: 100%;
+  padding: 10rpx;
+  margin: 30rpx 0;
+  background-color: aliceblue;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.info{
+  width: 60%;
+}
+.entree, .side{
+  text-overflow: wrap;
+}
+.side {
+  font-size: 12px;
+  color: grey;
+}
+.interface{
+  width: 22%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.number{
+  width: 60rpx;
+  height: 60rpx;
+  background-color: white;
+  border: 1px solid gray;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.plus,.minus{
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.plus{
+  background-color: greenyellow;
+}
+.minus{
+  background-color: red;
+}
+
+.button{
+  margin-top: 100rpx;
+}
+.button button{
+  width: 250rpx;
+}

@@ -11,7 +11,7 @@
     </view>
   </view>
 
-  <view class='inspector'>
+  <view class='restaurants'>
       <view class='item'>
         <view class='header'>
           <text>福村</text>
@@ -23,9 +23,8 @@
           这里是一些餐厅简介......</text>
         </view>
       </view>
-  </view>
-
-  <view class='item'>
+  
+      <view class='item'>
         <view class='header'>
           <text>Sushi</text>
           <icon type='cancel' size="20"></icon>
@@ -35,6 +34,10 @@
           这里是一些餐厅简介......
           这里是一些餐厅简介......</text>
         </view>
+      </view>
   </view>
 
+  <view class='orders'>
+    <button>查看已有订单</button>
+  </view>
 </view>

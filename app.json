@@ -1,7 +1,8 @@
 {
   "pages": [
-    "pages/cus_index/cus_index",
+    "pages/place_order/place_order",
     "pages/menu/menu",
+    "pages/cus_index/cus_index",
     "pages/res_index/res_index",
     "pages/index/index",
     "pages/logs/logs"
