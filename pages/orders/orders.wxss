@@ -10,39 +10,40 @@
   margin-bottom: 20px 
 }
 
-
 .table{
   border: 0px solid darkgray;
 }
 
-.tr{
-  display: flex;
+.tr {
+  display: flex; 
   width: 100%;
   justify-content: center;
   height: 3rem;
+   align-items: center; 
+}
+
+.th {
+  display: flex;
+  width: 40%;
+  justify-content: center;
+  background: #3366FF;
+  color: #fff;
+  height: 3rem;
   align-items: center;
 }
-.td{
-    width: 40%;
+
+.td {
+    width:40%;
     justify-content: center;
     text-align: center;
 }
+
 .bg-w{
   background: snow;
 }
 .bg-g{
   background: #E6F3F9;
 }
-.th{
-  width: 40%;
-  justify-content: center;
-  background: #3366FF;
-  color: #fff;
-  display: flex;
-  height: 3rem;
-  align-items: center;
-}
-
 .radio-group {
     border-bottom: 1px solid #ddd;
 }

@@ -5,13 +5,12 @@
 
 <view class="page">
     <view class="page__hd">
-        <text class="page__title">radio</text>
-        <text class="page__desc">单选框</text>
+    <!-- 暂时为空  -->
     </view>
     <view class="page__bd">
         <view class="section section_gap">
             <radio-group class="radio-group" bindchange="radioChange">
-                <radio class="radio" wx:for-items="{{items}}" wx:key="name" value="{{item.name}}" checked="{{item.checked}}">
+                <radio class="radio" wx:for-items="{{filters}}" wx:key="name" value="{{item.name}}" checked="{{item.checked}}">
                     <text>{{item.value}}</text>
                 </radio>
             </radio-group>
@@ -19,18 +18,14 @@
     </view>
 </view>
 
-<view class="filter">
-  <text>按订单查看\n</text>
-  <text>按地点查看\n</text>
-  <text>按菜品查看\n</text>
-</view>
 
 <view class="table">
   <!-- 表格首行  -->
   <view class="tr bg-w">
-    <view class="th">head1</view>
-    <view class="th">head2</view>
-    <view class="th ">head3</view>
+    <view class="th">微信名</view>
+    <view class="th">取餐地点</view>
+    <view class="th">取餐时间</view>
+  </view>
   <!-- 表格内容  -->
   <block wx:for="{{listData}}" wx:key="{{code}}">
     <view wx:if="{{index % 2 == 0}}" class="tr bg-g" >
@@ -38,12 +33,12 @@
       <view class="td">{{item.text}}</view>
       <view class="td">{{item.type}}</view>
     </view>
-    <view wx:else class="tr" >
+    <view wx:else class="tr">
       <view class="td">{{item.code}}</view>
       <view class="td">{{item.text}}</view>
       <view class="td">{{item.type}}</view>
     </view>
   </block>
-  </view>
+
 
 </view>
