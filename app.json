@@ -1,11 +1,14 @@
 {
   "pages": [
-    "pages/orders/orders",
-    "pages/cus_index/cus_index",
-    "pages/menu/menu",
+    "pages/cus_lookup_orders/cus_lookup_orders",
+    "pages/res_menu/res_menu",
+    "pages/res_orders/res_orders",
+    
     "pages/place_order/place_order",
+    "pages/cus_index/cus_index",
     "pages/res_index/res_index",
     "pages/index/index",
+    
     "pages/logs/logs"
   ],
   "window": {

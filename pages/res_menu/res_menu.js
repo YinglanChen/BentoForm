@@ -1,4 +1,4 @@
-// pages/res_menu/res_menu.js
+// pages/menu/menu.js
 Page({
 
   /**
