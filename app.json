@@ -5,6 +5,7 @@
     "pages/res_menu/res_menu",
     "pages/cus_index/cus_index",
     "pages/res_orders/res_orders",
+    "pages/cus_lookup_orders/cus_lookup_orders",
     "pages/res_index/res_index",
     "pages/index/index",
     "pages/logs/logs"
