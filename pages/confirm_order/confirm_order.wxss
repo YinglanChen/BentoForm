@@ -1,0 +1,74 @@
+.header{
+  margin-bottom: 30rpx;
+  padding: 10rpx 30rpx;
+  border: 1px solid black;
+}
+.header text{
+  font-size: 20px;
+}
+
+scroll-view{
+  height: 600rpx;
+  background-color: #eee;
+}
+.overview{
+  width: 100%;
+  margin: 0 auto; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.item{
+  width: 90%;
+  padding: 10rpx;
+  margin: 30rpx 0;
+  background-color: aliceblue;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.info{
+  width: 70%;
+}
+.entree, .side{
+  text-overflow: wrap;
+}
+.side {
+  font-size: 12px;
+  color: grey;
+}
+.number{
+  width: 60rpx;
+  height: 60rpx;
+  background-color: white;
+  border: 1px solid gray;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.selector{
+  width: 100%;
+}
+.time, .location{
+  margin-top: 30rpx;
+}
+.picker{
+  padding: 10rpx;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+
+.interface{
+  margin-top: 40rpx;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+.interface button{
+  width: 40%;
+  height: 100rpx;
+}
