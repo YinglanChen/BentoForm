@@ -5,7 +5,11 @@
   </view>
 
   <view class="main">
-    <button>管理菜单</button>
-    <button>查看订单</button>
+    <navigator url="/pages/res_menu/res_menu">
+      管理菜单
+    </navigator>
+    <navigator url="/pages/res_orders/res_orders">
+      查看订单
+    </navigator>
   </view>
 </view>

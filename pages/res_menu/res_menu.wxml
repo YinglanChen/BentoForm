@@ -5,27 +5,29 @@
     <text id="title">已添加菜单\n</text>
 </view>
 
-<view class="menu">
+<view wx:for="{{listData}}"class="menu">
     <view class="delete">
-        <icon type="clear"></icon>
+        <icon data-ind="{{index}}" bindtap="deleteItem" type="clear"></icon>
     </view>
 
-    <view>
-        <text class="entree">黑椒牛肉盖饭\n</text>
-        <text class="side">绿豆西米露 或 大骨汤 或 西瓜汁\n</text>
+    <view class="entreeSide">
+      <text class="entree">{{item.main}}\n</text>
+      <text class="side">{{item.side}}\n</text>
     </view>
 
     <view class="price">
-        <text class="price">$9</text>
+      <text class="price">
+      {{item.price}}
+      </text>
     </view>
 </view>
 <!-- 2. 添加 -->
 <view class="add">
-    <input placeholder='主菜'></input>
-    <input placeholder='配菜'></input>
-    <input placeholder='金额'></input>
+    <input bindinput="bindInput1" value="{{inputValue1}}" placeholder='主菜'></input>
+    <input bindinput="bindInput2" value="{{inputValue2}}" placeholder='配菜'></input>
+    <input bindinput="bindInput3" value="{{inputValue3}}" type="number" placeholder='金额'></input>
 </view>
 <view class="confirm">
-    <button>确认添加</button>
+    <button open-type="getUserInfo" bindtap="confirm">确认添加</button>
 </view>
 

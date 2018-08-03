@@ -1,6 +1,6 @@
 <view class='container'>
   <view class='adder'>
-    <picker range="{{['Sushi Too', '福村']}}" value="0">
+    <picker bindchange="bindPickerChange" range="{{res_name}}" value="0">
       <view class='picker'>
         <text wx:if="{{!picked}}">添加餐馆</text>
         <block wx:else>{{"福村"}}</block>
@@ -12,32 +12,20 @@
   </view>
 
   <view class='restaurants'>
-      <view class='item'>
+      <view wx:for="{{res_added}}" class='item'>
         <view class='header'>
-          <text>福村</text>
-          <icon type='cancel' size="20"></icon>
+          <text>{{item.name}}</text>
+          <icon data-ind="{{index}}" bindtap="deleteItem" type='cancel' size="20"></icon>
         </view>
         <view class='info'>
-          <text>这里是一些餐厅简介......
-          这里是一些餐厅简介......
-          这里是一些餐厅简介......</text>
-        </view>
-      </view>
-  
-      <view class='item'>
-        <view class='header'>
-          <text>Sushi</text>
-          <icon type='cancel' size="20"></icon>
-        </view>
-        <view class='info'>
-          <text>这里是一些餐厅简介......
-          这里是一些餐厅简介......
-          这里是一些餐厅简介......</text>
+          <text>{{item.desc}}</text>
         </view>
       </view>
   </view>
 
   <view class='orders'>
-    <button>查看已有订单</button>
+    <navigator url="/pages/cus_lookup_orders/cus_lookup_orders">
+      查看已有订单
+    </navigator>
   </view>
 </view>
