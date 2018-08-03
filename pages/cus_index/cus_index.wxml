@@ -38,6 +38,8 @@
   </view>
 
   <view class='orders'>
-    <button>查看已有订单</button>
+    <navigator url="/pages/cus_lookup_orders/cus_lookup_orders">
+      查看已有订单
+    </navigator>
   </view>
 </view>
