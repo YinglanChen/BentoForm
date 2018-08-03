@@ -3,14 +3,14 @@
   <text>查看订单</text>
 </view>
 
-<view>
-  <text>微信名：陈大花</text>
-  <text>取餐时间：12:00</text>
-  <text>取餐地点：uc </text>
-  <text>金额：19元 </text>
-  <text>订单详情：</text>
-  <text>盐水鸭 10份</text>
-  <text>椰子鸡 9份</text>
+<view class="detail">
+  <text>微信名：陈大花\n</text>
+  <text>取餐时间：12:00\n</text>
+  <text>取餐地点：uc\n </text>
+  <text>金额：19元\n </text>
+  <text>订单详情：\n</text>
+  <text>盐水鸭 10份\n</text>
+  <text>椰子鸡 9份\n</text>
 </view>
 
 <view class="back">
