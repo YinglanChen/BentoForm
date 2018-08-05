@@ -1,48 +1,30 @@
 <view class='container'>
   <view class='header'>
-    <text>福村</text>
+    <text>{{name}}</text>
   </view>
 
-  <view class='main'>
+  <view wx:for="{{menu}}" class="main">
     <view class="item">
       <view class="price">
-          <text class="price">$9</text>
+          <text class="price">{{item.price}}</text>
       </view>
 
       <view class='info'>
-        <text class="entree">黑椒牛肉盖饭
+        <text class="entree">{{item.main}}
         </text>
-        <text class="side">绿豆西米露 或 大骨汤 或 西瓜汁</text>
+        <text class="side">{{item.side}}</text>
       </view>
 
       <view class='interface'>
-        <view class='plus'><text>+</text></view>
-        <view class='number'><text>0</text></view>
-        <view class='minus'><text>-</text></view>
-      </view>
-    </view>
-
-     <view class="item">
-      <view class="price">
-          <text class="price">$100</text>
-      </view>
-
-      <view class='info'>
-        <text class="entree">黑椒猪肉盖饭
-        </text>
-        <text class="side">红豆西米露 或 大骨汤 或 哈密瓜汁 (测试换行......)</text>
-      </view>
-
-      <view class='interface'>
-        <view class='plus'><text>+</text></view>
-        <view class='number'><text>0</text></view>
-        <view class='minus'><text>-</text></view>
+        <view class='plus' data-ind="{{index}}" bindtap="plus"><text>+</text></view>
+        <view class='number'><text>{{item.num}}</text></view>
+        <view class='minus' data-ind="{{index}}" bindtap="minus"><text>-</text></view>
       </view>
     </view>
   </view>
   <!-- 再添加一个取餐地点和时间会更好？^ ^  -->
   <view class='button'>
-    <button>确认</button>
+    <button bindtap="confirm">确认</button>
   </view>
 
 </view>
