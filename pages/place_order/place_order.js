@@ -31,9 +31,9 @@ Page({
   },
 
   confirm: function (e) {
-    var that = this
+    var name = this.data.name
     wx.navigateTo({
-      url: "/pages/confirm_order/confirm_order?res={{that.data.name}}&confirm=" + JSON.stringify(this.data.menu),
+      url: "/pages/confirm_order/confirm_order?res=" + name + "&confirm=" + JSON.stringify(this.data.menu)
     })
   },
 
