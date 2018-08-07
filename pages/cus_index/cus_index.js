@@ -6,13 +6,13 @@ Page({
    */
   data: {
     picked: false,
-    // all restaurants
+    // all restaurants (should be obtained from the database)
     res_name: ["Sushi Too", "福村"],
     res_desc: [
       { "num": 0, "name": "Sushi Too", "desc": "这是一些餐厅简介……\n这是家厉害的餐馆", "added": false },
       { "num": 1, "name": "福村", "desc": "这还是一些餐厅简介……\n这是家更厉害的餐馆", "added": false }
     ],
-    // restaurants listed in detail
+    // restaurants listed in detail (should not be changed when the user login the next time)
     res_added: []
   },
 

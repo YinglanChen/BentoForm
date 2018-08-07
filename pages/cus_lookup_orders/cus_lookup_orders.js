@@ -5,7 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    // should be obtained from the database
+    order: [{"name": "陈大花", "time": "12:00", "location": "uc", "price": "19元", "details": ["盐水鸭10份", "椰子鸡9份"]}]
   },
 
   /**

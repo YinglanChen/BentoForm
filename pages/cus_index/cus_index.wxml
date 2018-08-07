@@ -12,7 +12,7 @@
   </view>
 
   <view class='restaurants'>
-      <view wx:for="{{res_added}}" class='item'>
+      <navigator wx:for="{{res_added}}" url="/pages/place_order/place_order?res={{item.name}}" class='item'>
         <view class='header'>
           <text>{{item.name}}</text>
           <icon data-ind="{{index}}" bindtap="deleteItem" type='cancel' size="20"></icon>
@@ -20,7 +20,7 @@
         <view class='info'>
           <text>{{item.desc}}</text>
         </view>
-      </view>
+      </navigator>
   </view>
 
   <view class='orders'>

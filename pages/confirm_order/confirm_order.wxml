@@ -1,23 +1,23 @@
 <view class='container'>
   <view class='header'>
-    <text>确认订单-福村</text>
+    <text>{{name}}</text>
   </view>
   <scroll-view scroll-y='{{true}}'>
   <view class='overview'>
-    <block wx:for="{{[1,2,3,4,5]}}">
-    <view class="item">
+    <block wx:for="{{confirmed}}">
+    <view wx:if="{{item.num}}!=0" class="item">
       <view class="price">
-          <text class="price">$9</text>
+          <text class="price">{{item.price}}</text>
       </view>
 
       <view class='info'>
-        <text class="entree">黑椒牛肉盖饭
+        <text class="entree">{{item.main}}
         </text>
-        <text class="side">绿豆西米露 或 大骨汤 或 西瓜汁</text>
+        <text class="side">{{item.side}}</text>
       </view>
 
       <view class='number'>
-        1
+        {{item.num}}
       </view>
     </view>
     </block>
@@ -33,14 +33,14 @@
     </view>
     <view class='location'>
       <text>选择地点:</text>
-      <picker range="{{['Hunt', 'Gates']}}">
+      <picker range="{{locations}}">
         <view class='picker'>Hunt</view>
       </picker>
     </view>
   </view>
 
   <view class='interface'>
-    <button>返回</button>
-    <button type='primary'>确认</button>
+    <button bindtap="getBack">返回</button>
+    <button bindtap="confirm" type='primary'>确认</button>
   </view>
 </view>

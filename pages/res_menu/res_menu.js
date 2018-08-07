@@ -5,8 +5,13 @@ Page({
    * 页面的初始数据
    */
   data: {
+    // menu (need to be obtained from the database)
     listData: [
       { "main": "黑椒牛肉盖饭", "side": "绿豆西米露 或 大骨汤 或 西瓜汁", "price": "$9"}
+    ],
+    locations: [
+      { "ind": 0, "location": "Hunt", "checked": false, "start": "", "end": "" },
+      { "ind": 1, "location": "Gates", "checked": false, "start": "", "end": "" }
     ],
     inputValue1: '',
     inputValue2: '',
@@ -32,7 +37,7 @@ Page({
     })
   },
 
-  confirm: function(e) {
+  addItem: function (e) {
     var v1 = this.data.inputValue1
     var v2 = this.data.inputValue2
     var v3 = this.data.inputValue3
@@ -48,12 +53,53 @@ Page({
     wx.setStorageSync(key, this.data.listData)
   },
 
-  deleteItem: function(e) {
+  deleteItem: function (e) {
     var num = e.currentTarget.dataset.ind
     this.data.listData.splice(num, 1)
     this.setData({
       listData: this.data.listData
     })
+  },
+
+  checkboxChange: function (e) {
+    var nlist = e.detail.value
+    for (var i = 0; i < this.data.locations.length; i++) {
+      this.data.locations[i].checked = false
+    }
+    for (var j = 0; j < nlist.length; j++) {
+      var k = nlist[j]
+      this.data.locations[k].checked = true
+    }
+    for (var l = 0; l < this.data.locations.length; l++) {
+      if (this.data.locations[l].checked == false) {
+        this.data.locations[l].start = ""
+        this.data.locations[l].end = ""
+      }
+    }
+    this.setData({
+      locations: this.data.locations
+    })
+  },
+
+  startTime: function (e) {
+    var n = e.currentTarget.dataset.ind
+    this.data.locations[n].start = e.detail.value
+    this.setData({
+      locations: this.data.locations
+    })
+  },
+
+  endTime: function (e) {
+    var n = e.currentTarget.dataset.ind
+    this.data.locations[n].end = e.detail.value
+    this.setData({
+      locations: this.data.locations
+    })
+  },
+
+  /* upload menu to the database */
+  confirm: function (e) {
+
   },
 
   /**

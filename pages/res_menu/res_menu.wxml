@@ -5,7 +5,7 @@
     <text id="title">已添加菜单\n</text>
 </view>
 
-<view wx:for="{{listData}}"class="menu">
+<view wx:for="{{listData}}" class="menu">
     <view class="delete">
         <icon data-ind="{{index}}" bindtap="deleteItem" type="clear"></icon>
     </view>
@@ -26,8 +26,21 @@
     <input bindinput="bindInput1" value="{{inputValue1}}" placeholder='主菜'></input>
     <input bindinput="bindInput2" value="{{inputValue2}}" placeholder='配菜'></input>
     <input bindinput="bindInput3" value="{{inputValue3}}" type="number" placeholder='金额'></input>
+    <button bindtap="addItem">添加</button>
+    <checkbox-group bindchange="checkboxChange">
+      <text>送餐地点和时间</text>
+      <view class="checkbox" wx:for="{{locations}}">
+        <checkbox value="{{item.ind}}" checked="{{item.checked}}">
+        {{item.location}}
+        </checkbox>
+        <view wx:if="{{item.checked}}">
+          <input data-ind="{{index}}" bindinput="startTime" placeholder="到达时间"></input>
+          <input data-ind="{{index}}" bindinput="endTime" placeholder="离开时间"></input>
+        </view>
+      </view>
+    </checkbox-group>
 </view>
 <view class="confirm">
-    <button open-type="getUserInfo" bindtap="confirm">确认添加</button>
+    <button open-type="getUserInfo" bindtap="confirm" type="primary">确认</button>
 </view>
 
