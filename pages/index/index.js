@@ -61,5 +61,18 @@ Page({
    */
   onShareAppMessage: function () {
     
+  },
+
+  /* 跳转页面 */
+  jumpToRestIndex: function () {
+    wx.navigateTo({
+      url: '/pages/res_index/res_index'
+    })
+  },
+  
+  jumpToCusIndex:  function() {
+    wx.navigateTo({
+      url: '/pages/cus_index/cus_index',
+    })
   }
 })

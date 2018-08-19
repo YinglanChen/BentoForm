@@ -4,7 +4,7 @@
     <image src='../../images/tempt_logo.jpg' mode='scaleToFill'></image>
   </view>
   <view class="login">
-    <button>餐厅登录</button>
-    <button>顾客登录</button>
+    <button bindtap='jumpToRestIndex'>餐厅登录</button>
+    <button bindtap='jumpToCusIndex'>顾客登录</button>
   </view>
 </view>
