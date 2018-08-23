@@ -1,0 +1,8 @@
+<view class="container">
+  <button hover-class="but-hover" bindtap="insert">插入数据</button>
+  <!-- <button hover-class="but-hover" bindtap="update">修改数据</button>
+  <button hover-class="but-hover" bindtap="del">删除数据</button> -->
+  <text>key:{{aKey}}
+ value:{{aValue}}
+ type:{{aType}}</text>
+</view>

@@ -1,0 +1,15 @@
+page{
+  height: 80%;
+  width:100%;
+}
+.container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+button{
+  width:300rpx;
+}
+.but-hover{
+  background-color: #5CB85C;
+}
