@@ -11,7 +11,7 @@
     </view>
 
     <view class="entreeSide">
-      <text class="entree">{{item.main}}\n</text>
+      <text class="entree">{{item.entree}}\n</text>
       <text class="side">{{item.side}}\n</text>
     </view>
 

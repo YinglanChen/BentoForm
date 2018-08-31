@@ -5,10 +5,12 @@ Page({
    * 页面的初始数据
    */
   data: {
+    res_id: "",
     // menu (need to be obtained from the database)
-    listData: [
-      { "main": "黑椒牛肉盖饭", "side": "绿豆西米露 或 大骨汤 或 西瓜汁", "price": "$9"}
-    ],
+    /*listData: [
+      { "entree": "黑椒牛肉盖饭", "side": "绿豆西米露 或 大骨汤 或 西瓜汁", "price": "$9"}
+    ],*/
+    listData: [],
     locations: [
       { "ind": 0, "location": "Hunt", "checked": false, "start": "", "end": "" },
       { "ind": 1, "location": "Gates", "checked": false, "start": "", "end": "" }
@@ -16,7 +18,6 @@ Page({
     inputValue1: '',
     inputValue2: '',
     inputValue3: '',
-    user: ''
   },
 
   bindInput1: function (e) {
@@ -49,8 +50,8 @@ Page({
       inputValue3: ''
     })
     /* storage */
-    var key = this.data.user
-    wx.setStorageSync(key, this.data.listData)
+    //var key = this.data.user
+    //wx.setStorageSync(key, this.data.listData)
   },
 
   deleteItem: function (e) {
@@ -99,15 +100,75 @@ Page({
 
   /* upload menu to the database */
   confirm: function (e) {
+    for (var i = 0; i < this.data.listData.length; i++) {
+      wx.request({
+        url: 'https://www.alphalunch.xyz/res/addmenu',
+        data: {
+          id = res_id,
+          entree = this.data.listData[i].entree,
+          side = this.data.listData[i].side,
+          price = this.data.listData[i].price
+        },
+        method: 'GET',
+        header: {
+          'Content-Type': 'application/json'
+        },
+        success: function (res) {
+          console.log(res.data);
+        }
+      })
+    }
 
+    var placeList = []
+    for (var j = 0; j < this.data.locations.length; j++) {
+      var loc = this.data.locations[j]
+      if (loc.checked == true) {
+        var tp = loc.start + "-" + loc.end + "," + loc.location
+        placeList.push(tp)
+      }
+    }
+    wx.request({
+      url: 'https://www.alphalunch.xyz/res/updatetp',
+      data: {
+        rid = res_id,
+        tp = placeList
+      },
+      method: 'GET',
+      header: {
+        'Content-Type': 'application/json'
+      },
+      success: function (res) {
+        console.log(res.data);
+      }
+    })
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // 查看是否授权
+    this.setData({
+      res_id: options.id
+    })
     var that = this
+    wx.request({
+      url: 'https://www.alphalunch.xyz/general/allmenu',
+      data: {
+        id = res_id
+      },
+      method: 'GET',
+      header: {
+        'Content-Type': 'application/json'
+      },
+      success: function (res) {
+        that.setData({
+          listData: res.data
+        });
+      }
+    })
+
+    // 查看是否授权
+    /*var that = this
     wx.getSetting({
       success: function (res) {
         if (res.authSetting['scope.userInfo']) {
@@ -122,7 +183,7 @@ Page({
           })
         }
       }
-    })
+    })*/
   },
 
   /**
