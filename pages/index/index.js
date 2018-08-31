@@ -65,8 +65,31 @@ Page({
 
   /* 跳转页面 */
   jumpToRestIndex: function () {
+    wx.login({
+      success: function (res) {
+        if (res.code) {
+          
+        } else {
+          console.log('登录失败！' + res.errMsg)
+        }
+      }
+    })
+
+    var that = this
+    wx.request({
+      url: 'https://www.alphalunch.xyz/res/login',
+      data: {
+      },
+      method: 'GET',
+      header: {
+        'Content-Type': 'application/json'
+      },
+      success: function (res) {
+        that.get_data();
+      }
+    })
     wx.navigateTo({
-      url: '/pages/res_index/res_index'
+      url: '/pages/res_index/res_index?id= '
     })
   },
   
