@@ -4,7 +4,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    admin_id: ""
+    res_id: ""
   },
 
   /**
@@ -12,7 +12,7 @@ Page({
    */
   onLoad: function (options) {
     this.setData({
-      admin_id: options.id
+      res_id: options.id
     })
   },
 
