@@ -5,10 +5,10 @@
   </view>
 
   <view class="main">
-    <navigator url="/pages/res_menu/res_menu">
+    <navigator url="/pages/res_menu/res_menu?id={{admin_id}}">
       管理菜单
     </navigator>
-    <navigator url="/pages/res_orders/res_orders">
+    <navigator url="/pages/res_orders/res_orders?id={{admin_id}}">
       查看订单
     </navigator>
   </view>
