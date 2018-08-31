@@ -65,10 +65,26 @@ Page({
 
   /* 跳转页面 */
   jumpToRestIndex: function () {
+    var oid = ""
     wx.login({
       success: function (res) {
         if (res.code) {
-          
+          wx.request({
+            url: 'https://api.weixin.qq.com/sns/jscode2session',
+            data: {
+              appid = wxdf3e5bc6bf28c758,
+              secret: 0x7eac8fde1aa076c4e16502cf85980562,
+              js_code: res.code,
+              grant_type: authorization_code
+            },
+            method: "GET",
+            header: {
+              'Content-Type': 'application/json'
+            },
+            success: function (res) {
+              oid = res.data.openid
+            }
+          })
         } else {
           console.log('登录失败！' + res.errMsg)
         }
@@ -76,20 +92,22 @@ Page({
     })
 
     var that = this
+    var rid = ""
     wx.request({
       url: 'https://www.alphalunch.xyz/res/login',
       data: {
+        id = oid
       },
       method: 'GET',
       header: {
         'Content-Type': 'application/json'
       },
       success: function (res) {
-        that.get_data();
+        rid = res.data;
       }
     })
     wx.navigateTo({
-      url: '/pages/res_index/res_index?id= '
+      url: '/pages/res_index/res_index?id=' + rid
     })
   },
   
