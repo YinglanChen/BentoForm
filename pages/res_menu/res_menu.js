@@ -104,10 +104,10 @@ Page({
       wx.request({
         url: 'https://www.alphalunch.xyz/res/addmenu',
         data: {
-          id = res_id,
-          entree = this.data.listData[i].entree,
-          side = this.data.listData[i].side,
-          price = this.data.listData[i].price
+          id : res_id,
+          entree : this.data.listData[i].entree,
+          side : this.data.listData[i].side,
+          price : this.data.listData[i].price
         },
         method: 'GET',
         header: {
@@ -130,8 +130,8 @@ Page({
     wx.request({
       url: 'https://www.alphalunch.xyz/res/updatetp',
       data: {
-        rid = res_id,
-        tp = placeList
+        rid : res_id,
+        tp : placeList
       },
       method: 'GET',
       header: {
@@ -154,7 +154,7 @@ Page({
     wx.request({
       url: 'https://www.alphalunch.xyz/general/allmenu',
       data: {
-        id = res_id
+        id : res_id
       },
       method: 'GET',
       header: {
