@@ -6,9 +6,9 @@
         <block wx:else>{{"福村"}}</block>
       </view>
     </picker>
-    <view class='add_btn'>
+    <!-- <view class='add_btn'>
       <icon type="success" size="30"></icon>
-    </view>
+    </view> -->
   </view>
 
   <view class='restaurants'>

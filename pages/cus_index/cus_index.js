@@ -1,6 +1,6 @@
 // pages/cus_index/cus_index.js
-Page({
 
+Page({
   /**
    * 页面的初始数据
    */
@@ -18,6 +18,7 @@ Page({
 
   bindPickerChange: function (e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
+    console.log(getApp().globalData.OPEN_ID)
     var ind = e.detail.value
     if (this.data.res_desc[ind].added == false) {
       this.data.res_desc[ind].added = true
@@ -44,21 +45,21 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+    
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    
   },
 
   /**
