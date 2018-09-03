@@ -21,24 +21,25 @@
 
 <view class="table">
   <!-- 表格首行  -->
-  <view class="tr bg-w">
+  <view wx:if="{{filters[0].checked}}" class="tr bg-w">
     <view class="th">微信名</view>
+    <view class="th">价格</view>
     <view class="th">取餐地点</view>
-    <view class="th">取餐时间</view>
   </view>
   <!-- 表格内容  -->
-  <block wx:for="{{listData}}" wx:key="{{code}}">
-    <view wx:if="{{index % 2 == 0}}" class="tr bg-g" >
-      <view class="td">{{item.code}}</view>
-      <view class="td">{{item.text}}</view>
-      <view class="td">{{item.type}}</view>
-    </view>
-    <view wx:else class="tr">
-      <view class="td">{{item.code}}</view>
-      <view class="td">{{item.text}}</view>
-      <view class="td">{{item.type}}</view>
-    </view>
+  <block wx:if="{{filters[0].checked}}">
+    <block wx:for="{{listByOrder}}" wx:key="{{code}}">
+      <view wx:if="{{index % 2 == 0}}" class="tr bg-g" >
+        <view class="td">{{item.cus_id}}</view>
+        <view class="td">{{item.price}}</view>
+        <view class="td">{{item.location}}</view>
+      </view>
+      <view wx:else class="tr">
+        <view class="td">{{item.cus_id}}</view>
+        <view class="td">{{item.price}}</view>
+        <view class="td">{{item.location}}</view>
+      </view>
+    </block>
   </block>
-
 
 </view>
