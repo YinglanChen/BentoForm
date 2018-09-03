@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    res_id: "",
+    res_id: -1,
     // menu (need to be obtained from the database)
     /*listData: [
       { "entree": "黑椒牛肉盖饭", "side": "绿豆西米露 或 大骨汤 或 西瓜汁", "price": "$9"}
@@ -104,10 +104,12 @@ Page({
       wx.request({
         url: 'https://www.alphalunch.xyz/res/addmenu',
         data: {
-          id : res_id,
-          entree : this.data.listData[i].entree,
-          side : this.data.listData[i].side,
-          price : this.data.listData[i].price
+          id: res_id,
+          entree: this.data.listData[i].entree,
+          side: this.data.listData[i].side,
+          price: this.data.listData[i].price,
+          key: 's',
+          value: 0x7eac8fde1aa076c4e16502cf85980562
         },
         method: 'GET',
         header: {
@@ -130,8 +132,10 @@ Page({
     wx.request({
       url: 'https://www.alphalunch.xyz/res/updatetp',
       data: {
-        rid : res_id,
-        tp : placeList
+        rid: res_id,
+        tp: placeList,
+        key: 's',
+        value: 0x7eac8fde1aa076c4e16502cf85980562
       },
       method: 'GET',
       header: {
@@ -154,7 +158,9 @@ Page({
     wx.request({
       url: 'https://www.alphalunch.xyz/general/allmenu',
       data: {
-        id : res_id
+        id: res_id,
+        key: 's',
+        value: 0x7eac8fde1aa076c4e16502cf85980562
       },
       method: 'GET',
       header: {
