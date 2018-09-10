@@ -82,6 +82,7 @@ Page({
   /* 跳转页面 */
   jumpToRestIndex: function() {
     var oid = ""
+    var rid = -1
     wx.login({
       success: function (res) {
         if (res.code) {
@@ -98,32 +99,32 @@ Page({
               'Content-Type': 'application/json'
             },
             success: function (res) {
+              console.log(res)
               oid = res.data.openid
+              wx.request({
+                url: 'https://www.alphalunch.xyz/bento/res/login',
+                data: {
+                  id: oid,
+                  s: "7eac8fde1aa076c4e16502cf85980562"
+                },
+                method: 'GET',
+                header: {
+                  'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                success: function (res) {
+                  console.log(res)
+                  rid = res.data
+                  wx.navigateTo({
+                    url: '/pages/res_index/res_index?id=' + rid
+                  });
+                }
+              })
             }
           })
         } else {
           console.log('登录失败！' + res.errMsg)
         }
       }
-    });
-
-    var that = this
-    var rid = ""
-    wx.request({
-      url: 'https://www.alphalunch.xyz/res/login',
-      data: {
-        id : oid
-      },
-      method: 'GET',
-      header: {
-        'Content-Type': 'application/json'
-      },
-      success: function (res) {
-        rid = res.data;
-      }
-    })
-    wx.navigateTo({
-      url: '/pages/res_index/res_index?id=' + rid
     });
   },
   
@@ -145,6 +146,7 @@ Page({
               'Content-Type': 'application/json'
             },
             success: function (res) {
+              console.log(res.data)
               app.globalData.OPEN_ID = res.data.openid
               console.log(app.globalData.OPEN_ID)
 
