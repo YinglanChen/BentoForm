@@ -6,20 +6,22 @@
 </view>
 
 <view wx:for="{{listData}}" class="menu">
+  <block wx:if="{{!item.fields.deleted}}">
     <view class="delete">
-        <icon data-ind="{{index}}" bindtap="deleteItem" type="clear"></icon>
+        <icon data-ind="{{index}}" data-mid="{{item.pk}}" bindtap="deleteItem" type="clear"></icon>
     </view>
 
     <view class="entreeSide">
-      <text class="entree">{{item.entree}}\n</text>
-      <text class="side">{{item.side}}\n</text>
+      <text class="entree">{{item.fields.entree}}\n</text>
+      <text class="side">{{item.fields.side}}\n</text>
     </view>
 
     <view class="price">
       <text class="price">
-      {{item.price}}
+      ${{item.fields.price}}
       </text>
     </view>
+  </block>
 </view>
 <!-- 2. 添加 -->
 <view class="add">

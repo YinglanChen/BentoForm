@@ -42,16 +42,36 @@ Page({
     var v1 = this.data.inputValue1
     var v2 = this.data.inputValue2
     var v3 = this.data.inputValue3
-    this.data.listData.unshift({"main": v1, "side": v2, "price": '$' + v3})
-    this.setData({
-      listData: this.data.listData,
-      inputValue1: '',
-      inputValue2: '',
-      inputValue3: ''
+    
+    var that = this
+    wx.request({
+      url: 'https://www.alphalunch.xyz/bento/res/addmenu',
+      data: {
+        id: this.data.res_id,
+        entree: v1,
+        side: v2,
+        price: v3,
+        s: "7eac8fde1aa076c4e16502cf85980562"
+      },
+      method: 'GET',
+      header: {
+        'Content-Type': 'application/json'
+      },
+      success: function (res) {
+        console.log(res.data);
+        console.log(that.data.listData)
+        that.data.listData.unshift({
+          "fields": {"restaurant": that.data.res_id, "entree": v1, "side": v2, "price": v3, "deleted": false},
+          "pk": res.data
+        })
+        that.setData({
+          listData: that.data.listData,
+          inputValue1: '',
+          inputValue2: '',
+          inputValue3: ''
+        })
+      }
     })
-    /* storage */
-    //var key = this.data.user
-    //wx.setStorageSync(key, this.data.listData)
   },
 
   deleteItem: function (e) {
@@ -59,6 +79,21 @@ Page({
     this.data.listData.splice(num, 1)
     this.setData({
       listData: this.data.listData
+    })
+    wx.request({
+      url: 'https://www.alphalunch.xyz/bento/res/deletemenu',
+      data: {
+        rid: this.data.res_id,
+        mid: e.currentTarget.dataset.mid,
+        s: "7eac8fde1aa076c4e16502cf85980562"
+      },
+      method: 'GET',
+      header: {
+        'Content-Type': 'application/json'
+      },
+      success: function (res) {
+        console.log(res.data);
+      }
     })
   },
 
@@ -80,6 +115,7 @@ Page({
     this.setData({
       locations: this.data.locations
     })
+    console.log(this.data.locations)
   },
 
   startTime: function (e) {
@@ -100,76 +136,74 @@ Page({
 
   /* upload menu to the database */
   confirm: function (e) {
-    for (var i = 0; i < this.data.listData.length; i++) {
-      wx.request({
-        url: 'https://www.alphalunch.xyz/res/addmenu',
-        data: {
-          id: res_id,
-          entree: this.data.listData[i].entree,
-          side: this.data.listData[i].side,
-          price: this.data.listData[i].price,
-          key: 's',
-          value: 0x7eac8fde1aa076c4e16502cf85980562
-        },
-        method: 'GET',
-        header: {
-          'Content-Type': 'application/json'
-        },
-        success: function (res) {
-          console.log(res.data);
-        }
-      })
-    }
-
     var placeList = []
-    for (var j = 0; j < this.data.locations.length; j++) {
+    var len = this.data.locations.length
+    for (var j = 0; j < len; j++) {
       var loc = this.data.locations[j]
       if (loc.checked == true) {
         var tp = loc.start + "-" + loc.end + "," + loc.location
         placeList.push(tp)
       }
-    }
-    wx.request({
-      url: 'https://www.alphalunch.xyz/res/updatetp',
-      data: {
-        rid: res_id,
-        tp: placeList,
-        key: 's',
-        value: 0x7eac8fde1aa076c4e16502cf85980562
-      },
-      method: 'GET',
-      header: {
-        'Content-Type': 'application/json'
-      },
-      success: function (res) {
-        console.log(res.data);
+      if(j == len - 1) {
+        wx.request({
+          url: 'https://www.alphalunch.xyz/bento/res/updatetp',
+          data: {
+            rid: this.data.res_id,
+            tp: placeList,
+            s: "7eac8fde1aa076c4e16502cf85980562"
+          },
+          method: 'GET',
+          header: {
+            'Content-Type': 'application/json'
+          },
+          success: function (res) {
+            console.log(res.data);
+          }
+        })
       }
-    })
+    }
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log("Success. Res_id: " + options.id)
     this.setData({
       res_id: options.id
     })
     var that = this
     wx.request({
-      url: 'https://www.alphalunch.xyz/general/allmenu',
+      url: 'https://www.alphalunch.xyz/bento/general/allmenu',
       data: {
-        id: res_id,
-        key: 's',
-        value: 0x7eac8fde1aa076c4e16502cf85980562
+        id: this.data.res_id,
+        s: "7eac8fde1aa076c4e16502cf85980562"
       },
       method: 'GET',
       header: {
         'Content-Type': 'application/json'
       },
       success: function (res) {
+        console.log(res.data)
         that.setData({
           listData: res.data
         });
+      }
+    })
+
+    wx.request({
+      url: 'https://www.alphalunch.xyz/bento/general/alltp',
+      data: {
+        id: this.data.res_id,
+        s: "7eac8fde1aa076c4e16502cf85980562"
+      },
+      method: 'GET',
+      header: {
+        'Content-Type': 'application/json'
+      },
+      success: function (res) {
+        console.log(res.data)
+        
       }
     })
 
