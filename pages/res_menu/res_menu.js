@@ -142,26 +142,25 @@ Page({
       var loc = this.data.locations[j]
       if (loc.checked == true) {
         var tp = loc.start + "-" + loc.end + "," + loc.location
-        placeList.push(tp)
-      }
-      if(j == len - 1) {
-        wx.request({
-          url: 'https://www.alphalunch.xyz/bento/res/updatetp',
-          data: {
-            rid: this.data.res_id,
-            tp: placeList,
-            s: "7eac8fde1aa076c4e16502cf85980562"
-          },
-          method: 'GET',
-          header: {
-            'Content-Type': 'application/json'
-          },
-          success: function (res) {
-            console.log(res.data);
-          }
-        })
+        placeList.unshift(tp)
       }
     }
+    
+    wx.request({
+      url: 'https://www.alphalunch.xyz/bento/res/updatetp',
+      data: {
+        rid: this.data.res_id,
+        tp: placeList,
+        s: "7eac8fde1aa076c4e16502cf85980562"
+      },
+      method: 'GET',
+      header: {
+        'Content-Type': 'application/json'
+      },
+      success: function (res) {
+        console.log(res.data);
+      }
+    })
   },
 
   /**
@@ -190,7 +189,7 @@ Page({
         });
       }
     })
-
+    
     wx.request({
       url: 'https://www.alphalunch.xyz/bento/general/alltp',
       data: {
@@ -203,7 +202,22 @@ Page({
       },
       success: function (res) {
         console.log(res.data)
-        
+        var timeplace = res.data
+        var loc = that.data.locations
+        for (var i = 0; i < timeplace.length; i++) {
+          for (var j = 0; j < loc.length; j++) {
+            if (loc[j].location == timeplace[i].fields.place) {
+              var startend = timeplace[i].fields.time.split("-")
+              loc[j].start = startend[0]
+              loc[j].end = startend[1]
+              loc[j].checked = true
+            }
+          }
+        }
+        that.setData({
+          locations: loc
+        })
+        console.log(that.data.locations)
       }
     })
 

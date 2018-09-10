@@ -36,8 +36,8 @@
         {{item.location}}
         </checkbox>
         <view wx:if="{{item.checked}}">
-          <input data-ind="{{index}}" bindinput="startTime" placeholder="到达时间"></input>
-          <input data-ind="{{index}}" bindinput="endTime" placeholder="离开时间"></input>
+          <input data-ind="{{index}}" bindinput="startTime" value="{{item.start}}" placeholder="到达时间"></input>
+          <input data-ind="{{index}}" bindinput="endTime" value="{{item.end}}" placeholder="离开时间"></input>
         </view>
       </view>
     </checkbox-group>
