@@ -30,14 +30,14 @@
   <block wx:if="{{filters[0].checked}}">
     <block wx:for="{{listByOrder}}" wx:key="{{code}}">
       <view wx:if="{{index % 2 == 0}}" class="tr bg-g" >
-        <view class="td">{{item.cus_id}}</view>
-        <view class="td">{{item.price}}</view>
-        <view class="td">{{item.location}}</view>
+        <view class="td">{{item.fields.cus_id}}</view>
+        <view class="td">{{item.fields.price}}</view>
+        <view class="td">{{item.fields.location}}</view>
       </view>
       <view wx:else class="tr">
-        <view class="td">{{item.cus_id}}</view>
-        <view class="td">{{item.price}}</view>
-        <view class="td">{{item.location}}</view>
+        <view class="td">{{item.fields.cus_id}}</view>
+        <view class="td">{{item.fields.price}}</view>
+        <view class="td">{{item.fields.location}}</view>
       </view>
     </block>
   </block>
